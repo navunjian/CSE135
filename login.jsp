@@ -3,8 +3,6 @@
     <title>Login</title>
   </head>
   <body>
-		<%-- -------- Include menu HTML code -------- --%>
-            <jsp:include page="./login.html" />
 	
 	    <%-- Import the java.sql package --%>
             <%@ page import="java.sql.*"%>
@@ -45,6 +43,8 @@
 				
 				if (!rs.next()) throw new SQLException("The provided name "+name+" does not exist.");
 				conn.commit();
+				session.setAttribute("user",name);
+				response.sendRedirect("./categories.jsp");
             %>
 			
 			<%
@@ -53,8 +53,12 @@
                 // Wrap the SQL exception in a runtime exception to propagate
                 // it upwards
 				result = e.getMessage();
+				okay = false;
             }
-			%><br/>
+			%>
+		<%-- -------- Include menu HTML code -------- --%>
+			<%= (okay) ? "Hello, "+session.getAttribute("user")+".<br/>" : "" %>
+            <jsp:include page="./login.html" /><br/>
 			<span color="red">
 			<%= result %>
 			</span>

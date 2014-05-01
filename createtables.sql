@@ -1,9 +1,7 @@
-DROP TABLE cart;
-DROP TABLE products;
-DROP TABLE users;
-DROP TABLE categories;
-
-
+DROP TABLE IF EXISTS cart;
+DROP TABLE IF EXISTS products;
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS categories;
 
 CREATE TABLE users(
 	ID		SERIAL PRIMARY KEY,
