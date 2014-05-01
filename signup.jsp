@@ -62,7 +62,7 @@
 				okay = false;
             }
 			%>
-			<%= result %>
-			<%= (okay) ? "You have successfully signed up, "+name : "Your signup failed, "+name %>
+			
+			<%= (okay) ? "You have successfully signed up, "+name : "Your signup failed." %>
   </body>
 </html>
