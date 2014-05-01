@@ -44,6 +44,7 @@
 				if (!rs.next()) throw new SQLException("The provided name "+name+" does not exist.");
 				conn.commit();
 				session.setAttribute("user",name);
+				session.setAttribute("role",rs.getString("role"));
 				response.sendRedirect("./categories.jsp");
             %>
 			

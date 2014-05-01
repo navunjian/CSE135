@@ -62,7 +62,14 @@
 				okay = false;
             }
 			%>
-			<%= result %>
-			<%= (okay) ? "You have successfully signed up, "+name : "Your signup failed, "+name %>
+			
+			<%= (okay) ? "You have successfully signed up, "+name : "Your signup failed." %>
+                
+            <% if(okay) {
+                response.sendRedirect("./login.html");
+            }
+            %>
+                
+    
   </body>
 </html>
