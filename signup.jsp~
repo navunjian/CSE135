@@ -48,7 +48,7 @@
 				
 				if (rs.next()) throw new SQLException("Already exists.");
 				
-				insertUser.executeUpdate("INSERT INTO users(NAME,ROLE,AGE,STATE) VALUES ('"+name+"', '"+role+"', "+age+", '"+state+"')");
+				insertUser.executeUpdate("INSERT INTO users VALUES (DEFAULT,'"+name+"', '"+role+"', "+age+", '"+state+"')");
 				
 				conn.commit();
             %>
