@@ -4,9 +4,13 @@
 		<title>Categories</title>
 	</head>
 	<body>
+    <jsp:include page="./header.jsp"/>
 		<a href="./categories.jsp">Refresh</a>
 		<%@ page import="java.sql.*"%>
-		<h1><%= "Hello, "+session.getAttribute("user") %></h1>
+
+    <h2>
+    Product Categories
+    </h2>
 		<form method="POST" action="./categories.jsp">
 		<table border="1">
 			<tr>
