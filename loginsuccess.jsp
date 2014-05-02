@@ -58,13 +58,19 @@
 				result = e.getMessage();
 				okay = false;
             }
-			%>    <jsp:include page="./header.jsp"/>
+			%>
 
     <%-- -------- Include menu HTML code -------- --%>
+			<% if (okay) { %>
+				<jsp:include page="./header.jsp"/>
+			<% } %>
+			
 			<%= (okay) ? "Hello, "+session.getAttribute("user")+".<br/>" : "" %>
-            <br/>
-			<span color="red">
+			
+			<% if (!okay) {%>
+				<jsp:include page="./login.jsp" flush="true" />
+			<% } %>
 			<%= result %>
-			</span>
+			
   </body>
 </html>
