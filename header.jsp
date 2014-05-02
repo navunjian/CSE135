@@ -17,6 +17,7 @@
 
 <p>
             <% if("owner".equals(session.getAttribute("role") )){ %>
+        <jsp:include page="./ownerheader.jsp"/>
 
         <a href="./logout.jsp">Logout</a>
             <% }

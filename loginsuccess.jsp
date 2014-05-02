@@ -6,7 +6,6 @@
 	
 	    <%-- Import the java.sql package --%>
             <%@ page import="java.sql.*"%>
-    <jsp:include page="./header.jsp"/>
 
     <%-- -------- Open Connection Code -------- --%>
 
@@ -48,7 +47,7 @@
 				conn.commit();
 				session.setAttribute("user",name);
 				session.setAttribute("role",rs.getString("role"));
-				response.sendRedirect("./categories.jsp");
+
             %>
 			
 			<%
@@ -59,10 +58,11 @@
 				result = e.getMessage();
 				okay = false;
             }
-			%>
-		<%-- -------- Include menu HTML code -------- --%>
+			%>    <jsp:include page="./header.jsp"/>
+
+    <%-- -------- Include menu HTML code -------- --%>
 			<%= (okay) ? "Hello, "+session.getAttribute("user")+".<br/>" : "" %>
-            <jsp:include page="login.jsp" /><br/>
+            <br/>
 			<span color="red">
 			<%= result %>
 			</span>

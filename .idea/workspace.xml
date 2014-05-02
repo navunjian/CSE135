@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63ca07ee-99c0-475a-9632-a14239450fda" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/logout.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nologinheader.jsp" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/header.html" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/login.html" afterPath="$PROJECT_DIR$/login.jsp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/login.jsp" afterPath="$PROJECT_DIR$/loginsuccess.jsp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/signup.html" afterPath="$PROJECT_DIR$/signup.jsp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/signup.jsp" afterPath="$PROJECT_DIR$/signupsuccess.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/categories.jsp" afterPath="$PROJECT_DIR$/categories.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custheader.jsp" afterPath="$PROJECT_DIR$/custheader.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/header.jsp" afterPath="$PROJECT_DIR$/header.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginsuccess.jsp" afterPath="$PROJECT_DIR$/loginsuccess.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ownerheader.jsp" afterPath="$PROJECT_DIR$/ownerheader.jsp" />
     </list>
     <ignored path="cse135.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,10 +28,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="header.jsp" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="header.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/header.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="15" selection-start="388" selection-end="388" vertical-scroll-proportion="0.3003337" vertical-offset="0" max-vertical-offset="899">
+            <state line="6" column="54" selection-start="192" selection-end="192" vertical-scroll-proportion="-4.0" vertical-offset="0" max-vertical-offset="738">
               <folding />
             </state>
           </provider>
@@ -62,7 +58,7 @@
       <file leaf-file-name="custheader.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/custheader.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="108">
+            <state line="1" column="32" selection-start="61" selection-end="61" vertical-scroll-proportion="-0.6666667" vertical-offset="0" max-vertical-offset="126">
               <folding />
             </state>
           </provider>
@@ -71,7 +67,7 @@
       <file leaf-file-name="ownerheader.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ownerheader.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="108">
+            <state line="2" column="0" selection-start="94" selection-end="94" vertical-scroll-proportion="-1.3333334" vertical-offset="0" max-vertical-offset="144">
               <folding />
             </state>
           </provider>
@@ -104,10 +100,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="loginsuccess.jsp" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="loginsuccess.jsp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/loginsuccess.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="45" selection-start="104" selection-end="104" vertical-scroll-proportion="-4.0" vertical-offset="0" max-vertical-offset="1350">
+            <state line="38" column="65" selection-start="1263" selection-end="1263" vertical-scroll-proportion="0.27919912" vertical-offset="433" max-vertical-offset="1350">
               <folding />
             </state>
           </provider>
@@ -138,8 +134,6 @@
         <option value="$PROJECT_DIR$/createtables.sql" />
         <option value="$PROJECT_DIR$/products.jsp" />
         <option value="$PROJECT_DIR$/header.html" />
-        <option value="$PROJECT_DIR$/ownerheader.jsp" />
-        <option value="$PROJECT_DIR$/custheader.jsp" />
         <option value="$PROJECT_DIR$/login.html" />
         <option value="$PROJECT_DIR$/categories.jsp" />
         <option value="$PROJECT_DIR$/nologinheader.jsp" />
@@ -147,7 +141,10 @@
         <option value="$PROJECT_DIR$/login.jsp" />
         <option value="$PROJECT_DIR$/logout.jsp" />
         <option value="$PROJECT_DIR$/signupsuccess.jsp" />
+        <option value="$PROJECT_DIR$/ownerheader.jsp" />
         <option value="$PROJECT_DIR$/header.jsp" />
+        <option value="$PROJECT_DIR$/custheader.jsp" />
+        <option value="$PROJECT_DIR$/loginsuccess.jsp" />
       </list>
     </option>
   </component>
@@ -445,30 +442,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ownerheader.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="108">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/categories.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="11" selection-start="76" selection-end="115" vertical-scroll-proportion="-4.0" vertical-offset="0" max-vertical-offset="2052">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/custheader.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="144">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loginsuccess.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="45" selection-start="104" selection-end="104" vertical-scroll-proportion="-4.0" vertical-offset="0" max-vertical-offset="1350">
           <folding />
         </state>
       </provider>
@@ -487,9 +463,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ownerheader.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="94" selection-end="94" vertical-scroll-proportion="-1.3333334" vertical-offset="0" max-vertical-offset="144">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/header.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="15" selection-start="388" selection-end="388" vertical-scroll-proportion="0.3003337" vertical-offset="0" max-vertical-offset="899">
+        <state line="6" column="54" selection-start="192" selection-end="192" vertical-scroll-proportion="-4.0" vertical-offset="0" max-vertical-offset="738">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/custheader.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="32" selection-start="61" selection-end="61" vertical-scroll-proportion="-0.6666667" vertical-offset="0" max-vertical-offset="126">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loginsuccess.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="65" selection-start="1263" selection-end="1263" vertical-scroll-proportion="0.27919912" vertical-offset="433" max-vertical-offset="1350">
           <folding />
         </state>
       </provider>
