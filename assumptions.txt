@@ -1,0 +1,8 @@
+PROJECT ONE: ASSUMPTIONS
+
+
+- Shopping cart is persistent in that items added within the same session remain in the cart
+
+- Users must enter appropriate data types as input
+
+- Items are listed individually on the shopping cart page; to add a specific quantity of items to the cart, follow the "view the product" link and choose the number
