@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63ca07ee-99c0-475a-9632-a14239450fda" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cart.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/confirmation.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shopproducts.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/createtables.sql" afterPath="$PROJECT_DIR$/createtables.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/custheader.jsp" afterPath="$PROJECT_DIR$/custheader.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/products.jsp" afterPath="$PROJECT_DIR$/products.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/confirmation.jsp" afterPath="$PROJECT_DIR$/confirmation.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="cse135.iws" />
@@ -58,19 +53,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cart.jsp" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="cart.jsp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cart.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="108" column="133" selection-start="3720" selection-end="3805" vertical-scroll-proportion="-18.814816" vertical-offset="1436" max-vertical-offset="2916">
+            <state line="149" column="57" selection-start="5172" selection-end="5222" vertical-scroll-proportion="0.73589164" vertical-offset="2030" max-vertical-offset="2916">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="confirmation.jsp" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="confirmation.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/confirmation.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="0" selection-start="567" selection-end="567" vertical-scroll-proportion="0.50790066" vertical-offset="0" max-vertical-offset="936">
+            <state line="31" column="8" selection-start="814" selection-end="814" vertical-scroll-proportion="-20.666666" vertical-offset="0" max-vertical-offset="972">
               <folding />
             </state>
           </provider>
@@ -596,16 +591,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cart.jsp">
+    <entry file="file://$PROJECT_DIR$/confirmation.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="108" column="133" selection-start="3720" selection-end="3805" vertical-scroll-proportion="-18.814816" vertical-offset="1436" max-vertical-offset="2916">
+        <state line="31" column="8" selection-start="814" selection-end="814" vertical-scroll-proportion="-20.666666" vertical-offset="0" max-vertical-offset="972">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/confirmation.jsp">
+    <entry file="file://$PROJECT_DIR$/cart.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="0" selection-start="567" selection-end="567" vertical-scroll-proportion="0.50790066" vertical-offset="0" max-vertical-offset="936">
+        <state line="149" column="57" selection-start="5172" selection-end="5222" vertical-scroll-proportion="0.73589164" vertical-offset="2030" max-vertical-offset="2916">
           <folding />
         </state>
       </provider>

@@ -7,10 +7,10 @@
         <%@ page import="java.sql.*"%>
 
         <jsp:include page="./header.jsp" />
-        Congrats! You just bought a bunch of stuff!
 
-            <%
 
+        <%
+        if (request.getParameter("creditcard") != null) {
             Connection conn = null;
             PreparedStatement pstmt = null;
             ResultSet rs = null;
@@ -42,6 +42,8 @@
 
 				}
 				catch(Exception e){}
-				%>
+				%>        Congrats! You just bought a bunch of stuff!
+        <%}else{%>
+        Bad request<%}%>
         </body>
         </html>
