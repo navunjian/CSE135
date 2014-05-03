@@ -1,2 +1,2 @@
-<a href="">Shop Products</a>
-    <a href="">Do Other Shit</a>
+<a href="shopproducts.jsp?show=-1">Shop Products</a>
+    <a href="cart.jsp">Cart</a>

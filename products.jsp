@@ -58,7 +58,10 @@
 					String newsku = request.getParameter("newsku");
 					String newprice = request.getParameter("newprice");
 					double nprice = -1;
-					if (!newprice.isEmpty()) nprice = Double.parseDouble(newprice);
+					try{
+					    if (!newprice.isEmpty()) nprice = Double.parseDouble(newprice);
+					    } catch (Exception e){
+					    }
 					String newcat = request.getParameter("newcat");
 					boolean skucheck = true;
 					if (!newsku.isEmpty()) {
@@ -203,7 +206,7 @@
 				}
 			} catch (SQLException e) {
 				%><%= "There was an error attempting to "+result %><%
-				throw new RuntimeException(e);
+
 			}
 			if (!okay) {
 		%><%= "There was an error attempting to "+result %><%}%>
