@@ -147,8 +147,8 @@
         </form>
         <%rs2.next();%>
 
-        Your total: $<%= rs2.getDouble("total") %>
-    <%if (request.getParameter("action") == null) {%>
+        <%if (request.getParameter("action") == null) {%>
+        Your total: <%= rs2.getString("total") %>
         <form method="POST" action="confirmation.jsp">
             <input type="text" name="creditcard" placeholder="Credit Card Number" required/>
             <input type="submit" value="Buy cart"/>
