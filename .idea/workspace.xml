@@ -2,7 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63ca07ee-99c0-475a-9632-a14239450fda" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/confirmation.jsp" afterPath="$PROJECT_DIR$/confirmation.jsp" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cart.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/categories.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/confirmation.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/createtables.sql" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/custheader.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/er_diagram.pptx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/header.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/insertproduct.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/login.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/loginsuccess.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/logout.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/nologinheader.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ownerheader.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/products.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/shopproducts.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/signup.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/signupsuccess.jsp" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="cse135.iws" />
@@ -25,113 +42,7 @@
     <favorites_list name="cse135" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="nologinheader.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/nologinheader.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="35" selection-start="69" selection-end="69" vertical-scroll-proportion="-0.6666667" vertical-offset="0" max-vertical-offset="126">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="logout.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/logout.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="2" selection-start="85" selection-end="85" vertical-scroll-proportion="-2.0" vertical-offset="0" max-vertical-offset="162">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="shopproducts.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shopproducts.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="0" selection-start="2293" selection-end="2293" vertical-scroll-proportion="-12.649123" vertical-offset="467" max-vertical-offset="2970">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cart.jsp" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/cart.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="149" column="57" selection-start="5172" selection-end="5222" vertical-scroll-proportion="0.73589164" vertical-offset="2030" max-vertical-offset="2916">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="confirmation.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/confirmation.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="8" selection-start="814" selection-end="814" vertical-scroll-proportion="-20.666666" vertical-offset="0" max-vertical-offset="972">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="signup.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/signup.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="8" selection-start="113" selection-end="152" vertical-scroll-proportion="-4.6666665" vertical-offset="0" max-vertical-offset="1440">
-              <folding>
-                <marker date="1398991526709" expanded="true" signature="21:2671" placeholder="..." />
-                <marker date="1398991526709" expanded="true" signature="111:2664" placeholder="..." />
-                <marker date="1398991526709" expanded="true" signature="235:2663" placeholder="..." />
-                <marker date="1398991526709" expanded="true" signature="334:475" placeholder="..." />
-                <marker date="1398991526709" expanded="true" signature="578:2610" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="categories.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/categories.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="284" selection-end="284" vertical-scroll-proportion="-6.0" vertical-offset="72" max-vertical-offset="2394">
-              <folding>
-                <marker date="1399053167427" expanded="true" signature="21:4619" placeholder="..." />
-                <marker date="1399053167427" expanded="true" signature="29:66" placeholder="..." />
-                <marker date="1399053167427" expanded="true" signature="74:4611" placeholder="..." />
-                <marker date="1399053167427" expanded="true" signature="4512:4602" placeholder="..." />
-                <marker date="1399053167427" expanded="true" signature="4512:4532" placeholder="..." />
-                <marker date="1399053167427" expanded="true" signature="4512:4520" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="loginsuccess.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/loginsuccess.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="14" selection-start="1676" selection-end="1676" vertical-scroll-proportion="-13.296296" vertical-offset="541" max-vertical-offset="1458">
-              <folding>
-                <marker date="1399053167427" expanded="true" signature="1686:1890" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="createtables.sql" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/createtables.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="16" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="648">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="products.jsp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/products.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="0" selection-start="3448" selection-end="3606" vertical-scroll-proportion="-14.298245" vertical-offset="823" max-vertical-offset="4068">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -146,7 +57,6 @@
       <list>
         <option value="$PROJECT_DIR$/header.html" />
         <option value="$PROJECT_DIR$/login.html" />
-        <option value="$PROJECT_DIR$/categories.jsp" />
         <option value="$PROJECT_DIR$/nologinheader.jsp" />
         <option value="$PROJECT_DIR$/signup.jsp" />
         <option value="$PROJECT_DIR$/login.jsp" />
@@ -154,7 +64,6 @@
         <option value="$PROJECT_DIR$/signupsuccess.jsp" />
         <option value="$PROJECT_DIR$/header.jsp" />
         <option value="$PROJECT_DIR$/loginsuccess.jsp" />
-        <option value="$PROJECT_DIR$/ownerheader.jsp" />
         <option value="$PROJECT_DIR$/createtables.sql" />
         <option value="$PROJECT_DIR$/productorder.jsp" />
         <option value="$PROJECT_DIR$/products.jsp" />
@@ -162,13 +71,16 @@
         <option value="$PROJECT_DIR$/custheader.jsp" />
         <option value="$PROJECT_DIR$/cart.jsp" />
         <option value="$PROJECT_DIR$/confirmation.jsp" />
+        <option value="$PROJECT_DIR$/Sales.html" />
+        <option value="$PROJECT_DIR$/ownerheader.jsp" />
+        <option value="$PROJECT_DIR$/Sales.jsp" />
+        <option value="$PROJECT_DIR$/categories.jsp" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
     <option name="y" value="24" />
-    <option name="width" value="1855" />
+    <option name="width" value="1920" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -243,6 +155,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -263,11 +176,10 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="FullScreen" value="false" />
@@ -325,14 +237,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="24" width="1920" height="1056" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15795149" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1578125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -340,11 +252,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -381,230 +293,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="7" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="306">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/header.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="29" selection-start="278" selection-end="278" vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="450">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/custheader.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="144">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ownerheader.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="27" selection-start="119" selection-end="119" vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="162">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/signupsuccess.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="0" selection-start="2085" selection-end="2085" vertical-scroll-proportion="0.0" vertical-offset="432" max-vertical-offset="1332">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loginsuccess.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="18" selection-start="1618" selection-end="1618" vertical-scroll-proportion="0.0" vertical-offset="418" max-vertical-offset="1296">
-          <folding>
-            <marker date="1399053167427" expanded="true" signature="1686:1890" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/createtables.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="2" selection-start="257" selection-end="257" vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="648">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="7" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="306">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/header.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="30" selection-start="342" selection-end="342" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="612">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/custheader.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="144">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ownerheader.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="27" selection-start="119" selection-end="119" vertical-scroll-proportion="0.0" vertical-offset="54" max-vertical-offset="162">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/signupsuccess.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="63" selection-end="63" vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="954">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loginsuccess.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="14" selection-start="117" selection-end="877" vertical-scroll-proportion="0.0" vertical-offset="486" max-vertical-offset="1278">
-          <folding>
-            <marker date="1399053167427" expanded="true" signature="1686:1890" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/createtables.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="2" selection-start="257" selection-end="257" vertical-scroll-proportion="0.0" vertical-offset="198" max-vertical-offset="648">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nologinheader.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="35" selection-start="69" selection-end="69" vertical-scroll-proportion="-0.6666667" vertical-offset="0" max-vertical-offset="126">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="40" selection-start="96" selection-end="96" vertical-scroll-proportion="-2.6666667" vertical-offset="0" max-vertical-offset="378">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/signup.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="8" selection-start="113" selection-end="152" vertical-scroll-proportion="-4.6666665" vertical-offset="0" max-vertical-offset="1440">
-          <folding>
-            <marker date="1398991526709" expanded="true" signature="21:2671" placeholder="..." />
-            <marker date="1398991526709" expanded="true" signature="111:2664" placeholder="..." />
-            <marker date="1398991526709" expanded="true" signature="235:2663" placeholder="..." />
-            <marker date="1398991526709" expanded="true" signature="334:475" placeholder="..." />
-            <marker date="1398991526709" expanded="true" signature="578:2610" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/signupsuccess.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="100" selection-end="100" vertical-scroll-proportion="-4.0" vertical-offset="0" max-vertical-offset="1476">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loginsuccess.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="14" selection-start="1676" selection-end="1676" vertical-scroll-proportion="-13.296296" vertical-offset="541" max-vertical-offset="1458">
-          <folding>
-            <marker date="1399053167427" expanded="true" signature="1686:1890" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/categories.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="284" selection-end="284" vertical-scroll-proportion="-6.0" vertical-offset="72" max-vertical-offset="2394">
-          <folding>
-            <marker date="1399053167427" expanded="true" signature="21:4619" placeholder="..." />
-            <marker date="1399053167427" expanded="true" signature="29:66" placeholder="..." />
-            <marker date="1399053167427" expanded="true" signature="74:4611" placeholder="..." />
-            <marker date="1399053167427" expanded="true" signature="4512:4602" placeholder="..." />
-            <marker date="1399053167427" expanded="true" signature="4512:4532" placeholder="..." />
-            <marker date="1399053167427" expanded="true" signature="4512:4520" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ownerheader.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="94" selection-end="94" vertical-scroll-proportion="-1.3333334" vertical-offset="0" max-vertical-offset="144">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/header.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="52" selection-start="824" selection-end="824" vertical-scroll-proportion="-19.333334" vertical-offset="0" max-vertical-offset="738">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/logout.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="2" selection-start="85" selection-end="85" vertical-scroll-proportion="-2.0" vertical-offset="0" max-vertical-offset="162">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/custheader.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="85" selection-end="85" vertical-scroll-proportion="-1.3333334" vertical-offset="0" max-vertical-offset="144">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shopproducts.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="0" selection-start="2293" selection-end="2293" vertical-scroll-proportion="-12.649123" vertical-offset="467" max-vertical-offset="2970">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/createtables.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="16" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="648">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/products.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="0" selection-start="3448" selection-end="3606" vertical-scroll-proportion="-14.298245" vertical-offset="823" max-vertical-offset="4068">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/confirmation.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="8" selection-start="814" selection-end="814" vertical-scroll-proportion="-20.666666" vertical-offset="0" max-vertical-offset="972">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cart.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="149" column="57" selection-start="5172" selection-end="5222" vertical-scroll-proportion="0.73589164" vertical-offset="2030" max-vertical-offset="2916">
-          <folding />
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>
 
