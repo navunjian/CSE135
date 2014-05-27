@@ -34,7 +34,7 @@
 
 
         <select id="state" name="state">
-        <option value="unselected">All States</option>
+        <option value="allstates">All States</option>
         <option value="AL">Alabama</option>
         <option value="AK">Alaska</option>
         <option value="AZ">Arizona</option>
@@ -95,11 +95,12 @@
 
             Connection conn = null;
             PreparedStatement pstmt = null;
-            ResultSet rs = null;
+            ResultSet rs = null, rs2 = null;
 			boolean okay = true;
             String name = "";
 			String debug = "";
 			String result = "";
+			int width = 0, height = 0;
 			String insertStr = "INSERT INTO categories (NAME, DESCRIPTION) VALUES (?,?);";
 			String updateStr = "UPDATE categories SET name=?, description=? WHERE id=?";
 			String deleteStr = "DELETE FROM categories WHERE id=?";
@@ -119,9 +120,7 @@
 				while (rs.next()) {
         %>
         <option value="<%=rs.getString("name")%>"><%=rs.getString("name")%></option>
-<%}
-}catch(Exception e){}
-		%>
+		<%		}%>
 
         </select>
 
@@ -142,14 +141,66 @@
 
 
         <!-- Get Submitted Fields -->
-
+		<table border="1">
+		<tr>
         <%
         String rows = request.getParameter("rows");
+		%><td><b><%= rows  %></b></td><%
         String category = request.getParameter("category");
         String state = request.getParameter("state");
         String ages = request.getParameter("ages");
+		String rowOffset = request.getParameter("rowOffset");
+		String colOffset = request.getParameter("colOffset");
+		int rO, cO;
+		rO = (rowOffset == null) ? 0 : Integer.parseInt(rowOffset);
+		cO = (colOffset == null) ? 0 : Integer.parseInt(colOffset);
+		
+		rs = stmt.executeQuery("SELECT COUNT(*) as count FROM products");
+		int prod_ids[];
+		double prod_prices[];
+		rs.next();
+		prod_ids = new int[rs.getInt("count")];
+		prod_prices = new double[rs.getInt("count")];
+		rs = stmt.executeQuery("SELECT name, id, price FROM products ORDER BY name");
+		int i = 0;
+		while (rs.next()) {
+			prod_ids[i] = rs.getInt("id");
+			prod_prices[i++] = rs.getDouble("price");
+		%>
+		<td><b><%= rs.getString("name") %></b></td>
+		<% }
+		
+		if (rows.equals("customer")) {
+			rs = stmt.executeQuery("SELECT p.name as header, p.price FROM (SELECT u.name, sum(s.price) as price FROM users u, sales s WHERE u.id=s.uid GROUP BY u.name) as p ORDER BY name LIMIT 20 OFFSET "+rO);
+		} else if (rows.equals("state")) {
+			rs = stmt.executeQuery("SELECT p.state as header, p.price FROM (SELECT u.state, sum(s.price) as price FROM users u, sales s WHERE u.id=s.uid GROUP BY u.state) as p ORDER BY state LIMIT 20 OFFSET "+rO);
+		}
+		while (rs.next()) {
         %>
-
+		<tr><td><b><%= rs.getString("header") %></b></td>
+		<%
+			for (int j = 0; j < prod_ids.length; j++) {
+			Statement stmt2 = conn.createStatement();
+			//rs2 = stmt2.executeQuery("SELECT p.name, sum(s.quantity*p.price) as sum FROM sales s, users u, (select * from products ORDER BY name) as p WHERE s.uid=u.id AND u.name='"+rs.getString("header")+"' AND s.pid=p.id GROUP BY p.name ORDER BY p.name;");
+			
+			if (rows.equals("customer")) {
+				rs2 = stmt2.executeQuery("SELECT sum(s.quantity) as sum FROM sales s, users u WHERE s.uid=u.id AND u.name='"+rs.getString("header")+"' AND s.pid="+prod_ids[j]);
+			} else if (rows.equals("state")) {
+				rs2 = stmt2.executeQuery("SELECT sum(s.quantity) as sum FROM sales s, users u WHERE s.uid=u.id AND u.state='"+rs.getString("header")+"' AND s.pid="+prod_ids[j]);
+			}
+			rs2.next();
+		%>
+			<td><%= rs2.getInt("sum")*prod_prices[j] %></td>
+		<%
+			rs2.close();
+			stmt2.close();
+			}
+		}
+		%>
+		</table>
+		<%
+}catch(Exception e){throw e;}
+		%>
 
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
