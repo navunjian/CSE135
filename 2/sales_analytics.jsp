@@ -161,7 +161,7 @@
 		rs.next();
 		prod_ids = new int[rs.getInt("count")];
 		prod_prices = new double[rs.getInt("count")];
-		rs = stmt.executeQuery("SELECT name, id, price FROM products ORDER BY name");
+		rs = stmt.executeQuery("SELECT name, id, price FROM products ORDER BY name LIMIT 10 OFFSET " + cO);
 		int i = 0;
 		while (rs.next()) {
 			prod_ids[i] = rs.getInt("id");
