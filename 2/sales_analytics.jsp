@@ -155,7 +155,7 @@
 		rO = (rowOffset == null) ? 0 : Integer.parseInt(rowOffset);
 		cO = (colOffset == null) ? 0 : Integer.parseInt(colOffset);
 		
-		rs = stmt.executeQuery("SELECT COUNT(*) as count FROM products");
+		rs = stmt.executeQuery("SELECT COUNT(*) as count FROM products LIMIT 10 OFFSET " + cO);
 		int prod_ids[];
 		double prod_prices[];
 		rs.next();
@@ -179,7 +179,7 @@
         %>
 		<tr><td><b><%= rs.getString("header") %></b></td>
 		<%
-			for (int j = 0; j < prod_ids.length; j++) {
+			for (int j = 0; j < prod_ids.length &&j<10; j++) {
 			Statement stmt2 = conn.createStatement();
 			//rs2 = stmt2.executeQuery("SELECT p.name, sum(s.quantity*p.price) as sum FROM sales s, users u, (select * from products ORDER BY name) as p WHERE s.uid=u.id AND u.name='"+rs.getString("header")+"' AND s.pid=p.id GROUP BY p.name ORDER BY p.name;");
 			
