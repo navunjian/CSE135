@@ -24,7 +24,7 @@
 			</tr>
 			<tr>
 				<td></td>
-				<td><textarea name="inname" style="resize: none;" rows="1" cols="15" placeholder="Name" /></textarea></td>
+				<td><textarea name="inname" style="resize: none;" rows="1" cols="15" placeholder="Name" ></textarea></td>
 				<td><textarea name="indesc" rows="2" cols="30" placeholder="Description"></textarea></td>
 				<td><input type="submit" value="Insert" onclick="document.getElementById('param').value='insert'"/></td>
 			<tr>
