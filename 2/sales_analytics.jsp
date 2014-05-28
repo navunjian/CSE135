@@ -196,9 +196,9 @@
 
 		</table>
 
-		<button type="submit" onclick="document.getElementById('rowOffset').value =parseInt(document.getElementById('rowOffset').value)- 20 ">Previous 20 <%= rows %>s</button>
+		<button id="rowButton" type="submit" onclick="document.getElementById('rowOffset').value =parseInt(document.getElementById('rowOffset').value)- 20 ">Previous 20 <%= rows %>s</button>
 		<button type="submit" onclick="document.getElementById('rowOffset').value =parseInt(document.getElementById('rowOffset').value)+ 20 ">Next 20 <%= rows %>s</button>
-		<button type="submit" onclick="document.getElementById('colOffset').value =parseInt(document.getElementById('colOffset').value)- 10 ">Previous 10 products</button>
+		<button id="colButton" type="submit" onclick="document.getElementById('colOffset').value =parseInt(document.getElementById('colOffset').value)- 10 ">Previous 10 products</button>
 		<button type="submit" onclick="document.getElementById('colOffset').value =parseInt(document.getElementById('colOffset').value)+ 10 ">Next 10 products</button>
 		<input type="hidden" name="rowOffset" id="rowOffset" value=<%= rO %>></hidden>
         <input type="hidden" name="colOffset" id="colOffset" value=<%= cO %>></hidden>
@@ -228,7 +228,15 @@
             $('#category').val(storeCategory);
             $('#rows').val(storeRows);
         }
-        
+        var col = $.url().param("colOffset");
+        var row = $.url().param("rowOffset");
+
+        if(col ==null || col<=0)
+            $("#colButton").attr("disabled",true);
+
+        if(row ==null || row<=0)
+        $("#rowButton").attr("disabled",true);
+
         </script>
         </body>
         </html>
