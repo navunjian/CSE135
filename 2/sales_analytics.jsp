@@ -29,7 +29,6 @@
         <select name="rows" id="rows">
         <option value="customer">Customer</option>
         <option value="state">State</option>
-
         </select>
 
 
@@ -131,7 +130,7 @@
         <option value="45-65">45-65</option>
         <option value="65-">65-</option>
         </select>
-        <input type="submit" onclick="document.getElementById('rowOffset').value =0;document.getElementById('colOffset').value =0"/>
+        <input id="submitButton" type="submit" onclick="document.getElementById('rowOffset').value =0;document.getElementById('colOffset').value =0"/>
 
 
 
@@ -173,8 +172,8 @@
 		}
 		while (rs.next()) {
         %>
-		<tr><td><b><%= rs.getString("header") %></b></td>
-		<%
+		<tr><td><b><%= rs.getString("header") + "($"+rs.getDouble("price")+")" %></b></td>
+        <%
 			for (int j = 0; j < prod_ids.length &&j<10; j++) {
 			Statement stmt2 = conn.createStatement();
 			//rs2 = stmt2.executeQuery("SELECT p.name, sum(s.quantity*p.price) as sum FROM sales s, users u, (select * from products ORDER BY name) as p WHERE s.uid=u.id AND u.name='"+rs.getString("header")+"' AND s.pid=p.id GROUP BY p.name ORDER BY p.name;");
@@ -197,9 +196,9 @@
 		</table>
 
 		<button id="rowButton" type="submit" onclick="document.getElementById('rowOffset').value =parseInt(document.getElementById('rowOffset').value)- 20 ">Previous 20 <%= rows %>s</button>
-		<button type="submit" onclick="document.getElementById('rowOffset').value =parseInt(document.getElementById('rowOffset').value)+ 20 ">Next 20 <%= rows %>s</button>
+		<button id="rowButtonNext" type="submit" onclick="document.getElementById('rowOffset').value =parseInt(document.getElementById('rowOffset').value)+ 20 ">Next 20 <%= rows %>s</button>
 		<button id="colButton" type="submit" onclick="document.getElementById('colOffset').value =parseInt(document.getElementById('colOffset').value)- 10 ">Previous 10 products</button>
-		<button type="submit" onclick="document.getElementById('colOffset').value =parseInt(document.getElementById('colOffset').value)+ 10 ">Next 10 products</button>
+		<button id="colButtonNext" type="submit" onclick="document.getElementById('colOffset').value =parseInt(document.getElementById('colOffset').value)+ 10 ">Next 10 products</button>
 		<input type="hidden" name="rowOffset" id="rowOffset" value=<%= rO %>></hidden>
         <input type="hidden" name="colOffset" id="colOffset" value=<%= cO %>></hidden>
 
@@ -211,7 +210,7 @@
  
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script src="./js/purl.js"></script>
+        <script src="js/purl.js"></script>
 
                 
         <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -231,12 +230,27 @@
         var col = $.url().param("colOffset");
         var row = $.url().param("rowOffset");
 
-        if(col ==null || col<=0)
+        if(col == null || col<=0)
             $("#colButton").attr("disabled",true);
+        else {
+        $('#state').hide();
+        $('#ages').hide();
+        $('#category').hide();
+        $('#rows').hide(); 
+        $('#submitButton').hide();
+        }
+            
+        if(row == null || row <=0)
+            $("#rowButton").attr("disabled",true);
+        else {
+        $('#state').hide();
+        $('#ages').hide();
+        $('#category').hide();
+        $('#rows').hide(); 
+        $('#submitButton').hide();
+        }
 
-        if(row ==null || row<=0)
-        $("#rowButton").attr("disabled",true);
-
+       
         </script>
         </body>
         </html>
