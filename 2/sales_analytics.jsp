@@ -145,6 +145,7 @@
 		<tr>
         <%
         String rows = request.getParameter("rows");
+        if(rows !=null){
 		%><td><b><%= rows  %></b></td><%
         String category = request.getParameter("category");
         String state = request.getParameter("state");
@@ -170,7 +171,7 @@
 		<td><b><%= rs.getString("name") %></b></td>
 		<% }
 		
-		if (rows.equals("customer")) {
+		if ( rows.equals("customer")) {
 			rs = stmt.executeQuery("SELECT p.name as header, p.price FROM (SELECT u.name, sum(s.price) as price FROM users u, sales s WHERE u.id=s.uid GROUP BY u.name) as p ORDER BY name LIMIT 20 OFFSET "+rO);
 		} else if (rows.equals("state")) {
 			rs = stmt.executeQuery("SELECT p.state as header, p.price FROM (SELECT u.state, sum(s.price) as price FROM users u, sales s WHERE u.id=s.uid GROUP BY u.state) as p ORDER BY state LIMIT 20 OFFSET "+rO);
@@ -208,7 +209,7 @@
         <input type="hidden" name="colOffset" id="colOffset" value=<%= cO %>></hidden>
 
         <%
-}catch(Exception e){throw e;}
+}}catch(Exception e){throw e;}
 		%>
         </form>
 
