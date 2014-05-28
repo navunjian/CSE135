@@ -26,7 +26,7 @@
 
 
         <form method="GET" action="./sales_analytics.jsp">
-        <select name="rows">
+        <select name="rows" id="rows">
         <option value="customer">Customer</option>
         <option value="state">State</option>
 
@@ -88,7 +88,7 @@
         <option value="WY">Wyoming</option>
         </select>
 
-        <select name="category">
+        <select name="category" id="category">
         <option value="allcategories">All Categories</option>
 <!--Insert jsp shit for catergories here :D -->
             <%
@@ -111,7 +111,7 @@
 
                 // Open a connection to the database using DriverManager
                 conn = DriverManager.getConnection(
-                    "jdbc:postgresql://127.0.0.1:5432/CSE135?" +
+                    "jdbc:postgresql://127.0.0.1:5432/cse135?" +
                     "user=postgres&password=postgres");
 
 				Statement stmt = conn.createStatement();
@@ -124,7 +124,7 @@
 
         </select>
 
-        <select name="ages">
+        <select name="ages" id="ages">
         <option value="allages">All Ages</option>
         <option value="12-18">12-18</option>
         <option value="18-45">18-45</option>
@@ -222,7 +222,13 @@
         var storeCategory = $.url().param("category");
         var storeRows = $.url().param("rows");
         var storeState = $.url().param("state");
-        alert(storeAge);
+        if(storeAge != null) {
+            $('#state').val(storeState);
+            $('#ages').val(storeAge);
+            $('#category').val(storeCategory);
+            $('#rows').val(storeRows);
+        }
+        
         </script>
         </body>
         </html>
