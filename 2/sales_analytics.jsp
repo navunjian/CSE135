@@ -198,6 +198,12 @@
 		}
 		%>
 		</table>
+		
+		<button type="submit">Previous 10 <%= rows %>s</button>
+		<button type="submit">Next 10 <%= rows %>s</button>
+		<button type="submit">Previous 10 products</button>
+		<button type="submit" onclick="document.getElementById('rowOffset').value += 10">Next 10 products</button>
+		<input type="hidden" name="rowOffset" id="rowOffset" value=<%= rO %>></hidden>
 		<%
 }catch(Exception e){throw e;}
 		%>
