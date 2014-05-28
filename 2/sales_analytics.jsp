@@ -111,7 +111,7 @@
 
                 // Open a connection to the database using DriverManager
                 conn = DriverManager.getConnection(
-                    "jdbc:postgresql://127.0.0.1:5432/cse135?" +
+                    "jdbc:postgresql://127.0.0.1:5432/CSE135?" +
                     "user=postgres&password=postgres");
 
 				Statement stmt = conn.createStatement();
@@ -134,11 +134,6 @@
         <input type="submit" onclick="document.getElementById('rowOffset').value =0;document.getElementById('colOffset').value =0"/>
 
 
-        <div id="results-container">
-
-
-        </div>
-
 
         <!-- Get Submitted Fields -->
 		<table border="1">
@@ -156,7 +151,7 @@
 		rO = (rowOffset == null) ? 0 : Integer.parseInt(rowOffset);
 		cO = (colOffset == null) ? 0 : Integer.parseInt(colOffset);
 		
-		rs = stmt.executeQuery("SELECT COUNT(*) as count FROM products LIMIT 10 OFFSET 0");
+		rs = stmt.executeQuery("SELECT COUNT(*) as count FROM products");
 		int prod_ids[];
 		double prod_prices[];
 		rs.next();
@@ -212,10 +207,22 @@
 }}catch(Exception e){throw e;}
 		%>
         </form>
-
+            
+ 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="./js/purl.js"></script>
+
+                
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="js/bootstrap.min.js"></script>
+               
+        <script>
+        var storeAge = $.url().param("ages");
+        var storeCategory = $.url().param("category");
+        var storeRows = $.url().param("rows");
+        var storeState = $.url().param("state");
+        alert(storeAge);
+        </script>
         </body>
         </html>
