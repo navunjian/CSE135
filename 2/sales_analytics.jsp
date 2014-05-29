@@ -173,10 +173,15 @@
 		while (rs.next()) {
 			prod_ids[i] = rs.getInt("id");
 			prod_prices[i++] = rs.getDouble("price");
+						Statement stmt4 = conn.createStatement();
+
+	//	rs4 = stmt4.executeQuery("SELECT sum(sum) as sum from (SELECT p.name, sum(s.quantity*p.price) as sum FROM sales s, users u, (select * from products ORDER BY name) as p WHERE s.uid=u.id AND u.name='"+rs.getString("header")+"' AND s.pid=p.id GROUP BY p.name ORDER BY p.name) as a;");
+     //   rs4.next();
+
 		%>
-		<td><b><%= rs.getString("name")  %></b></td>
+		<td><b><%= rs.getString("name") + " (%" + ")"%></b></td>
 		<% }
-		
+		//        rs4.close();
 		if ( rows.equals("customer")) {
 			rs = stmt.executeQuery("SELECT p.name as header, p.price FROM (SELECT u.name, sum(s.price) as price FROM users u, sales s, products p, categories c  WHERE u.id=s.uid AND s.pid = p.id AND p.cid = c.id "  + filter+"  GROUP BY u.name) as p ORDER BY name LIMIT 20 OFFSET "+rO);
 		} else if (rows.equals("state")) {
@@ -187,20 +192,21 @@
 		x++;
 			Statement stmt3 = conn.createStatement();
 
-		rs3 = stmt3.executeQuery("SELECT sum(sum) as sum from (SELECT p.name, sum(s.quantity*p.price) as sum FROM sales s, users u, (select * from products ORDER BY name) as p WHERE s.uid=u.id AND u.name='"+rs.getString("header")+"' AND s.pid=p.id GROUP BY p.name ORDER BY p.name) as a;");
+		rs3 = stmt3.executeQuery("SELECT sum(s.quantity) as sum FROM sales s, users u, products p, categories c  WHERE s.uid=u.id AND s.pid = p.id  AND p.cid = c.id AND u.name='"+rs.getString("header")+"' "  + filter);
         rs3.next();
         %>
 		<tr><td><b><%= rs.getString("header") + " ($" +rs3.getString("sum") + ")" %></b></td>
         <%
+        rs3.close();
         						stmt3.close();
 
 			for (int j = 0; j < prod_ids.length &&j<10; j++) {
 			Statement stmt2 = conn.createStatement();
 
 			if (rows.equals("customer")) {
-				rs2 = stmt2.executeQuery("SELECT sum(s.quantity) as sum FROM sales s, users u, products p, categories c  WHERE s.uid=u.id AND s.pid = p.id  AND u.name='"+rs.getString("header")+"' AND s.pid="+prod_ids[j] + filter);
+				rs2 = stmt2.executeQuery("SELECT sum(s.quantity) as sum FROM sales s, users u, products p, categories c  WHERE s.uid=u.id AND s.pid = p.id AND p.cid = c.id AND u.name='"+rs.getString("header")+"' AND s.pid="+prod_ids[j] + filter);
 			} else if (rows.equals("state")) {
-				rs2 = stmt2.executeQuery("SELECT sum(s.quantity) as sum FROM sales s, users u, products p, categories c WHERE s.uid=u.id AND s.pid = p.id  AND u.state='"+rs.getString("header")+"' AND s.pid="+prod_ids[j] + filter);
+				rs2 = stmt2.executeQuery("SELECT sum(s.quantity) as sum FROM sales s, users u, products p, categories c WHERE s.uid=u.id AND s.pid = p.id AND p.cid = c.id  AND u.state='"+rs.getString("header")+"' AND s.pid="+prod_ids[j] + filter);
 			}
 			rs2.next();
 		%>
