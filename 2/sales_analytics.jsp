@@ -94,7 +94,7 @@
 
             Connection conn = null;
             PreparedStatement pstmt = null;
-            ResultSet rs = null, rs2 = null;
+            ResultSet rs = null, rs2 = null,rs3=null, rs4=null;
 			boolean okay = true;
             String name = "";
 			String debug = "";
@@ -168,6 +168,7 @@
 		prod_ids = new int[rs.getInt("count")];
 		prod_prices = new double[rs.getInt("count")];
 		rs = stmt.executeQuery("SELECT name, id, price FROM products ORDER BY name LIMIT 10 OFFSET " + cO);
+
 		int i = 0;
 		while (rs.next()) {
 			prod_ids[i] = rs.getInt("id");
@@ -181,14 +182,21 @@
 		} else if (rows.equals("state")) {
 			rs = stmt.executeQuery("SELECT p.state as header, p.price FROM (SELECT u.state, sum(s.price) as price FROM users u, sales s, products p, categories c WHERE u.id=s.uid AND s.pid = p.id  AND p.cid = c.id " + filter + " GROUP BY u.state) as p ORDER BY state LIMIT 20 OFFSET "+rO);
 		}
+		int x=0;
 		while (rs.next()) {
+		x++;
+			Statement stmt3 = conn.createStatement();
+
+		rs3 = stmt3.executeQuery("SELECT sum(sum) as sum from (SELECT p.name, sum(s.quantity*p.price) as sum FROM sales s, users u, (select * from products ORDER BY name) as p WHERE s.uid=u.id AND u.name='"+rs.getString("header")+"' AND s.pid=p.id GROUP BY p.name ORDER BY p.name) as a;");
+        rs3.next();
         %>
-		<tr><td><b><%= rs.getString("header") + "($"+rs.getDouble("price")+")" %></b></td>
+		<tr><td><b><%= rs.getString("header") + " ($" +rs3.getString("sum") + ")" %></b></td>
         <%
+        						stmt3.close();
+
 			for (int j = 0; j < prod_ids.length &&j<10; j++) {
 			Statement stmt2 = conn.createStatement();
-			//rs2 = stmt2.executeQuery("SELECT p.name, sum(s.quantity*p.price) as sum FROM sales s, users u, (select * from products ORDER BY name) as p WHERE s.uid=u.id AND u.name='"+rs.getString("header")+"' AND s.pid=p.id GROUP BY p.name ORDER BY p.name;");
-			
+
 			if (rows.equals("customer")) {
 				rs2 = stmt2.executeQuery("SELECT sum(s.quantity) as sum FROM sales s, users u, products p, categories c  WHERE s.uid=u.id AND s.pid = p.id  AND u.name='"+rs.getString("header")+"' AND s.pid="+prod_ids[j] + filter);
 			} else if (rows.equals("state")) {
@@ -196,11 +204,14 @@
 			}
 			rs2.next();
 		%>
+
+
 			<td><%= rs2.getInt("sum")*prod_prices[j] %></td>
 		<%
 			rs2.close();
 			stmt2.close();
 			}
+
 		}
 		%>
 
@@ -212,8 +223,10 @@
 		<button id="colButtonNext" type="submit" onclick="document.getElementById('colOffset').value =parseInt(document.getElementById('colOffset').value)+ 10 ">Next 10 products</button>
 		<input type="hidden" name="rowOffset" id="rowOffset" value=<%= rO %>></hidden>
         <input type="hidden" name="colOffset" id="colOffset" value=<%= cO %>></hidden>
-
+        <span id="i" style="display:none"><%=i%></span>
+        <span id="j" style="display:none"><%=x%></span>
         <%
+
 }}catch(Exception e){throw e;}
 		%>
         </form>
@@ -260,8 +273,9 @@
         $('#rows').hide(); 
         $('#submitButton').hide();
         }
+        if($("#i").text() <10) $("#colButtonNext").attr("disabled",true);
+        if($("#j").text() <20) $("#rowButtonNext").attr("disabled",true);
 
-       
         </script>
         </body>
         </html>
