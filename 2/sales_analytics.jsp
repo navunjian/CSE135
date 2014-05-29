@@ -223,6 +223,8 @@
 		<button id="colButtonNext" type="submit" onclick="document.getElementById('colOffset').value =parseInt(document.getElementById('colOffset').value)+ 10 ">Next 10 products</button>
 		<input type="hidden" name="rowOffset" id="rowOffset" value=<%= rO %>></hidden>
         <input type="hidden" name="colOffset" id="colOffset" value=<%= cO %>></hidden>
+        <br><br>
+        <a href="sales_analytics.jsp"><button style ="margin-left:200px" hidden="hidden" id="backButton" type="button" >Back to Start</button>          </a>
         <span id="i" style="display:none"><%=i%></span>
         <span id="j" style="display:none"><%=x%></span>
         <%
@@ -262,6 +264,7 @@
         $('#category').hide();
         $('#rows').hide(); 
         $('#submitButton').hide();
+        $('#backButton').show();
         }
             
         if(row == null || row <=0)
@@ -272,7 +275,9 @@
         $('#category').hide();
         $('#rows').hide(); 
         $('#submitButton').hide();
+        $('#backButton').show();
         }
+            
         if($("#i").text() <10) $("#colButtonNext").attr("disabled",true);
         if($("#j").text() <20) $("#rowButtonNext").attr("disabled",true);
 
