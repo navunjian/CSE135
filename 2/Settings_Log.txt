@@ -1,0 +1,13 @@
+Settings/Log Response
+
+ - Settings of the data generator, i.e., how many customers, products, product categories and sales the submitted version works on
+		customers = 100
+		product category = 10;
+		products = 1000;
+		sales = 10000;
+
+ - Response time after the "Run Query" request
+		- Almost instantaneous (less than a second to query 10000 sales)
+
+ - Log of your experimentation with index choices: What was the response time of "Run Query" for various interesting index choices (and non-choices)?
+    		- Indices didn't speed up the response time as much as our original queries 
