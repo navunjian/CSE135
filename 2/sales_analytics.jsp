@@ -144,6 +144,17 @@
         String category = request.getParameter("category");
         String state = request.getParameter("state");
         String ages = request.getParameter("ages");
+        Boolean filtered = false;
+        String filter="";
+
+        if(!state.equals("allstates")){
+            filter += " AND u.state='" +state + "' ";
+        }
+
+        if(!ages.equals("allages") && ages.equals("12-18")) filter += " AND u.age >=12 AND u.age <=18 "; if(!ages.equals("allages") && ages.equals("18-45")) filter += " AND u.age > 18 AND u.age <=45 "; if(!ages.equals("allages") && ages.equals("45-65")) filter += " AND u.age > 45 AND u.age <=65 "; if(!ages.equals("allages") && ages.equals( "65-")) filter += " AND u.age > 65 ";
+
+        if(!category.equals("allcategories")) filter += " AND c.name='" + category +"' ";
+
 		String rowOffset = request.getParameter("rowOffset");
 		String colOffset = request.getParameter("colOffset");
 		int rO, cO;
@@ -162,13 +173,13 @@
 			prod_ids[i] = rs.getInt("id");
 			prod_prices[i++] = rs.getDouble("price");
 		%>
-		<td><b><%= rs.getString("name") +  %></b></td>
+		<td><b><%= rs.getString("name")  %></b></td>
 		<% }
 		
 		if ( rows.equals("customer")) {
-			rs = stmt.executeQuery("SELECT p.name as header, p.price FROM (SELECT u.name, sum(s.price) as price FROM users u, sales s WHERE u.id=s.uid GROUP BY u.name) as p ORDER BY name LIMIT 20 OFFSET "+rO);
+			rs = stmt.executeQuery("SELECT p.name as header, p.price FROM (SELECT u.name, sum(s.price) as price FROM users u, sales s, products p, categories c  WHERE u.id=s.uid AND s.pid = p.id AND p.cid = c.id "  + filter+"  GROUP BY u.name) as p ORDER BY name LIMIT 20 OFFSET "+rO);
 		} else if (rows.equals("state")) {
-			rs = stmt.executeQuery("SELECT p.state as header, p.price FROM (SELECT u.state, sum(s.price) as price FROM users u, sales s WHERE u.id=s.uid GROUP BY u.state) as p ORDER BY state LIMIT 20 OFFSET "+rO);
+			rs = stmt.executeQuery("SELECT p.state as header, p.price FROM (SELECT u.state, sum(s.price) as price FROM users u, sales s, products p, categories c WHERE u.id=s.uid AND s.pid = p.id  AND p.cid = c.id " + filter + " GROUP BY u.state) as p ORDER BY state LIMIT 20 OFFSET "+rO);
 		}
 		while (rs.next()) {
         %>
@@ -179,9 +190,9 @@
 			//rs2 = stmt2.executeQuery("SELECT p.name, sum(s.quantity*p.price) as sum FROM sales s, users u, (select * from products ORDER BY name) as p WHERE s.uid=u.id AND u.name='"+rs.getString("header")+"' AND s.pid=p.id GROUP BY p.name ORDER BY p.name;");
 			
 			if (rows.equals("customer")) {
-				rs2 = stmt2.executeQuery("SELECT sum(s.quantity) as sum FROM sales s, users u WHERE s.uid=u.id AND u.name='"+rs.getString("header")+"' AND s.pid="+prod_ids[j]);
+				rs2 = stmt2.executeQuery("SELECT sum(s.quantity) as sum FROM sales s, users u, products p, categories c  WHERE s.uid=u.id AND s.pid = p.id  AND u.name='"+rs.getString("header")+"' AND s.pid="+prod_ids[j] + filter);
 			} else if (rows.equals("state")) {
-				rs2 = stmt2.executeQuery("SELECT sum(s.quantity) as sum FROM sales s, users u WHERE s.uid=u.id AND u.state='"+rs.getString("header")+"' AND s.pid="+prod_ids[j]);
+				rs2 = stmt2.executeQuery("SELECT sum(s.quantity) as sum FROM sales s, users u, products p, categories c WHERE s.uid=u.id AND s.pid = p.id  AND u.state='"+rs.getString("header")+"' AND s.pid="+prod_ids[j] + filter);
 			}
 			rs2.next();
 		%>
