@@ -192,7 +192,7 @@
 		x++;
 			Statement stmt3 = conn.createStatement();
 
-		rs3 = stmt3.executeQuery("SELECT sum(s.quantity) as sum FROM sales s, users u, products p, categories c  WHERE s.uid=u.id AND s.pid = p.id  AND p.cid = c.id AND u.name='"+rs.getString("header")+"' "  + filter);
+		rs3 = stmt3.executeQuery("SELECT sum(sum) as sum FROM (SELECT p.name, sum(s.quantity*p.price) as sum FROM sales s, users u, (select * from products ORDER BY name) as p, categories c WHERE s.uid=u.id  AND p.cid = c.id AND u.name='"+rs.getString("header")+ filter + "' AND s.pid=p.id GROUP BY p.name ORDER BY p.name) as a");
         rs3.next();
         %>
 		<tr><td><b><%= rs.getString("header") + " ($" +rs3.getString("sum") + ")" %></b></td>
