@@ -1,0 +1,57 @@
+READ FIRST: The page currently only uses aggregatesales and productsales, the other tables aren't necessary right now, but they could be later.
+We might also have to make other tables if these arent fast enough.
+
+
+Precomputed Tables:
+
+CREATE TABLE customersales (
+	id SERIAL PRIMARY KEY,
+	uid INTEGER REFERENCES users(id) ON DELETE CASCADE,
+	pid INTEGER REFERENCES products(id) ON DELETE CASCADE,
+	sales INTEGER NOT NULL
+);
+CREATE INDEX sales_index ON customersales (sales);
+
+CREATE TABLE statesales (
+	id SERIAL PRIMARY KEY,
+	state TEXT NOT NULL,
+	pid INTEGER REFERENCES products(id) ON DELETE CASCADE,
+	sales INTEGER NOT NULL
+);
+CREATE INDEX state_sales_index ON statesales (sales);
+
+CREATE TABLE productsales (
+	id SERIAL PRIMARY KEY,
+	pid INTEGER REFERENCES products(id) ON DELETE CASCADE,
+	sales INTEGER NOT NULL
+);
+CREATE INDEX product_sales_index ON productsales (sales);
+
+CREATE TABLE aggregatesales (
+	id	SERIAL PRIMARY KEY,
+	uid	INTEGER REFERENCES users(id) ON DELETE CASCADE,
+	state	TEXT NOT NULL,
+	catid	INTEGER REFERENCES categories(id) ON DELETE CASCADE,
+	pid	INTEGER REFERENCES products(id) ON DELETE CASCADE,
+	sales	INTEGER NOT NULL
+);
+
+First Precomputation:
+INSERT INTO customersales (uid, pid, sales)
+	SELECT p.uid, p.pid, SUM(p.quantity*p.price)
+	FROM sales p
+	GROUP BY p.uid, p.pid;
+INSERT INTO statesales (state, pid, sales)
+	SELECT u.state, p.pid, SUM(p.quantity*p.price)
+	FROM sales p, users u
+	WHERE p.uid = u.id
+	GROUP BY u.state, p.pid;
+INSERT INTO productsales (pid, sales)
+	SELECT p.pid, SUM(p.quantity*p.price)
+	FROM sales p
+	GROUP BY p.pid;
+INSERT INTO aggregatesales (uid, state, catid, pid, sales)
+	SELECT s.uid, u.state, p.cid, s.pid, sum(s.price*s.quantity)
+	FROM sales s, users u, products p
+	WHERE s.pid = p.id AND s.uid = u.id
+	GROUP BY s.uid, u.state, p.cid, s.pid;
