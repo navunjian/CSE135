@@ -46,8 +46,15 @@
                     "user=postgres&password=postgres");
 
 				Statement stmt = conn.createStatement();
+				stmt.executeUpdate("DROP TABL IF EXISTS uidcid");
+				stmt.executeUpdate("DROP TABL IF EXISTS statepid");
+				stmt.executeUpdate("DROP TABL IF EXISTS uidpid");
+				stmt.executeUpdate("CREATE TABLE statepid(id SERIAL PRIMARY KEY,state TEXT NOT NULL,pid INTEGER REFERENCES products(id) ON DELETE CASCADE,sum INTEGER NOT NULL);");
+				stmt.executeUpdate("CREATE TABLE uidcid(id SERIAL PRIMARY KEY,uid INTEGER REFERENCES users(id) ON DELETE CASCADE,cid INTEGER REFERENCES categories(id) ON DELETE CASCADE,sum INTEGER NOT NULL);");
+				stmt.executeUpdate("CREATE TABLE uidpid(id SERIAL PRIMARY KEY,uid INTEGER REFERENCES users(id) ON DELETE CASCADE,pid INTEGER REFERENCES products(id) ON DELETE CASCADE,sum INTEGER NOT NULL);");
 				stmt.executeUpdate("INSERT INTO uidcid (uid, cid, sum) SELECT s.uid, p.cid, sum(s.price*s.quantity) FROM products p, sales s WHERE p.id = s.pid GROUP BY s.uid, p.cid;");
-				//INSERT INTO statepid (state, pid, sum) SELECT u.state, s.pid, sum(s.price*s.quantity) FROM users u, sales s WHERE u.id = s.uid GROUP BY u.state, s.pid;");
+				stmt.executeUpdate("INSERT INTO statepid (state, pid, sum) SELECT u.state, s.pid, sum(s.price*s.quantity) FROM users u, sales s WHERE u.id = s.uid GROUP BY u.state, s.pid;");
+				stmt.executeUpdate("INSERT INTO uidpid (uid, pid, sum) SELECT uid, pid, sum(quantity*price) FROM sales group by uid, pid;");
 				 //CREATE TABLE statepid(id SERIAL PRIMARY KEY,state TEXT NOT NULL,pid INTEGER REFERENCES products(id) ON DELETE CASCADE,sum INTEGER NOT NULL);CREATE TABLE uidcid(id SERIAL PRIMARY KEY,uid INTEGER REFERENCES users(id) ON DELETE CASCADE,cid INTEGER REFERENCES categories(id) ON DELETE CASCADE,sum INTEGER NOT NULL);CREATE TABLE statecid(id SERIAL PRIMARY KEY,state TEXT NOT NULL,cid INTEGER REFERENCES categories(id) ON DELETE CASCADE,sum INTEGER NOT NULL);CREATE TABLE uid(id SERIAL PRIMARY KEY,uid INTEGER REFERENCES users(id) ON DELETE CASCADE,sum INTEGER NOT NULL);CREATE TABLE state(id SERIAL PRIMARY KEY,state TEXT NOT NULL,sum INTEGER NOT NULL);CREATE TABLE pid(id SERIAL PRIMARY KEY,pid INTEGER REFERENCES products(id) ON DELETE CASCADE,sum INTEGER NOT NULL);CREATE TABLE cid(id SERIAL PRIMARY KEY,cid INTEGER REFERENCES categories(id) ON DELETE CASCADE,sum INTEGER NOT NULL);");
 		//		"INSERT INTO customersales (uid, pid, sales) SELECT p.uid, p.pid, SUM(p.quantity*p.price) FROM sales p GROUP BY p.uid, p.pid; INSERT INTO statesales (state, pid, sales) SELECT u.state, p.pid, SUM(p.quantity*p.price) FROM sales p, users u WHERE p.uid = u.id GROUP BY u.state, p.pid; INSERT INTO productsales (pid, sales) SELECT p.pid, SUM(p.quantity*p.price) FROM sales p GROUP BY p.pid; INSERT INTO aggregatesales (uid, state, catid, pid, sales) SELECT s.uid, u.state, p.cid, s.pid, sum(s.price*s.quantity) FROM sales s, users u, products p WHERE s.pid = p.id AND s.uid = u.id GROUP BY s.uid, u.state, p.cid, s.pid;");
 
