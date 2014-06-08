@@ -167,34 +167,28 @@
 		rs.close();
 		String rowfilter = "";
 		if (rows.equals("customer")) {
-			rs = stmt.executeQuery("select sp.name as unit, sum(p.sum) as sum from uidcid as p, users as sp where p.uid=sp.id "+filter+" group by sp.name order by sum desc limit 20;");
+			rs = stmt.executeQuery("select sp.name as unit, sp.id as id, sum(p.sum) as sum from uidcid as p, users as sp where p.uid=sp.id "+filter+" group by sp.name, sp.id order by sum desc limit 20;");
 			rowfilter = "uid = ";
 		} else {
-			rs = stmt.executeQuery("select sp.state as unit,  sum(sp.sum) as sum from statepid sp, products p where sp.pid = p.id "+filter+" group by sp.state order by sum desc LIMIT 20;");
+			rs = stmt.executeQuery("select sp.state as unit, sum(sp.sum) as sum from statepid sp, products p where sp.pid = p.id "+filter+" group by sp.state order by sum desc LIMIT 20;");
 			rowfilter = "sp.state = ";
 		}
 		while (rs.next()) {
 		%><tr><td><b><%= rs.getString("unit")+" ("+rs.getString("sum")+")" %>
 		<%
 			String filt = rowfilter + ((rows.equals("customers")) ? rs.getString("unit") : "'"+rs.getString("unit")+"'");
+			
+			Statement stmt2 = conn.createStatement();
 			if (rows.equals("customer")) {
+				rs2 = stmt2.executeQuery("SELECT a.pid, up.sum FROM (select sp.pid,  sum(sp.sum) as sum from statepid sp, products p where sp.pid = p.id "+filter+" group by sp.pid order by sum desc LIMIT 10) as a, (SELECT pid, sum FROM uidpid WHERE uid = "+rs.getInt("id")+") as up WHERE a.pid = up.pid ORDER BY a.sum DESC");
 	        } else {
-	        	pstmt = conn.prepareStatement("select sum(sp.sum) as sum from statepid sp, products p where sp.pid = p.id AND p.id =? AND "+filter);
-	        //	"SELECT sum(sales) as sum FROM aggregatesales WHERE "+filt+" AND pid = ?");
-
+				rs2 = stmt2.executeQuery("SELECT a.pid, up.sum FROM (select sp.pid,  sum(sp.sum) as sum from statepid sp, products p where sp.pid = p.id "+filter+" group by sp.pid order by sum desc LIMIT 10) as a, (SELECT state, pid, sum FROM statepid WHERE state='"+rs.getString("unit")+"') as up WHERE a.pid = up.pid ORDER BY a.sum DESC");
 		    }
 
-			for(i = 0; i < 10; ++i) {
-				pstmt.setInt(1, prod_ids[i]);
-				rs2 = pstmt.executeQuery();
-				if (rs2.next()) {
-				    String productSales = rs2.getString("sum");
-				    if(productSales == null)
-				        productSales = "0";
-					%><td><%= productSales %></td><%
-				} else {
-					%><td><%= 0 %></td><%
-				}
+			while(rs2.next()) {
+			%>
+				<td><%= rs2.getDouble("sum") %></td>
+			<%
 			}
 		%>
 		</tr>	
