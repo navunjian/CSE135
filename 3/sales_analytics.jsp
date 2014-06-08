@@ -89,7 +89,6 @@
 
         <select name="category" id="category">
         <option value="allcategories">All Categories</option>
-<!--Insert jsp shit for catergories here :D -->
             <%
 
             Connection conn = null;
@@ -132,7 +131,7 @@
 		<tr>
         <%
         String rows = request.getParameter("rows");
-		if (rows == null) rows = "customers";
+		if (rows != null) {
 		
 		%><td><b><%= rows  %></b></td><%
         String category = request.getParameter("category");
@@ -160,14 +159,14 @@
 		while (rs.next()) {
 			prod_ids[i++] = rs.getInt("pid");
 		%>
-			<td><b><%= rs.getString("name")+" ("+rs.getString("sum")+")" %><b></td>
+			<td><b><%= rs.getString("name")+" ("+rs.getString("sum")+")" %></b></td>
 		<%
 		}
 		%></tr><%
 		rs.close();
 		String rowfilter = "";
-		if (rows.equals("customers")) {
-			rs = stmt.executeQuery("SELECT uid as unit, pid, sales FROM aggregatesales"+filter);
+		if (rows.equals("customer")) {
+			rs = stmt.executeQuery("SELECT uid as unit, sum(sales) as sum FROM aggregatesales "+filter+"GROUP BY uid ORDER BY sum DESC LIMIT 20");
 			rowfilter = "uid = ";
 		} else {
 			rs = stmt.executeQuery("SELECT state as unit, sum(sales) as sum FROM aggregatesales "+filter+"GROUP BY state ORDER BY sum DESC LIMIT 20");
@@ -182,7 +181,10 @@
 				pstmt.setInt(1, prod_ids[i]);
 				rs2 = pstmt.executeQuery();
 				if (rs2.next()) {
-					%><td><%= rs2.getString("sum") %></td><%
+				    String productSales = rs2.getString("sum");
+				    if(productSales == null)
+				        productSales = "0";
+					%><td><%= productSales %></td><%
 				} else {
 					%><td><%= 0 %></td><%
 				}
@@ -192,7 +194,7 @@
 		<% } %>
 		</table>
         <%
-
+}
 }catch(Exception e){throw e;}
 		%>
         </form>

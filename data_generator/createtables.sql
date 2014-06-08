@@ -33,3 +33,35 @@ CREATE TABLE sales (
     price	INTEGER NOT NULL
 );
 
+CREATE TABLE customersales (
+	id SERIAL PRIMARY KEY,
+	uid INTEGER REFERENCES users(id) ON DELETE CASCADE,
+	pid INTEGER REFERENCES products(id) ON DELETE CASCADE,
+	sales INTEGER NOT NULL
+);
+
+CREATE INDEX sales_index ON customersales (sales);
+
+CREATE TABLE statesales (
+	id SERIAL PRIMARY KEY,
+	state TEXT NOT NULL,
+	pid INTEGER REFERENCES products(id) ON DELETE CASCADE,
+	sales INTEGER NOT NULL
+);
+CREATE INDEX state_sales_index ON statesales (sales);
+
+CREATE TABLE productsales (
+	id SERIAL PRIMARY KEY,
+	pid INTEGER REFERENCES products(id) ON DELETE CASCADE,
+	sales INTEGER NOT NULL
+);
+CREATE INDEX product_sales_index ON productsales (sales);
+
+CREATE TABLE aggregatesales (
+	id	SERIAL PRIMARY KEY,
+	uid	INTEGER REFERENCES users(id) ON DELETE CASCADE,
+	state	TEXT NOT NULL,
+	catid	INTEGER REFERENCES categories(id) ON DELETE CASCADE,
+	pid	INTEGER REFERENCES products(id) ON DELETE CASCADE,
+	sales	INTEGER NOT NULL
+);
