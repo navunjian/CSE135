@@ -30,13 +30,13 @@ if(session.getAttribute("name")!=null)
 	
 	}
 
-	try { 		
+	 {
 			 quantity=Integer.parseInt(quantity_str);
 			if(quantity>0)
 			{
 				 Connection conn=null;
 				Statement stmt;
-				try
+
 				{
 					
 					
@@ -49,40 +49,24 @@ if(session.getAttribute("name")!=null)
 					stmt =conn.createStatement();
 					String  SQL="INSERT INTO carts (uid, pid, quantity,price) VALUES("+userID+", "+pid+", "+quantity+" , "+price+");";
 					
-					try{
+					{
 						conn.setAutoCommit(false);
 						stmt.execute(SQL);
 						conn.commit();
 						conn.setAutoCommit(true);
 						response.sendRedirect("buyShoppingCart.jsp");
 					}
-					catch(Exception e)
-					{
-						out.println("Fail! Please <a href=\"product_order.jsp?id="+pid+"\" target=\"_self\">buy it</a> again.");
-					}
-				
+
 					 
 				}
-				catch(Exception e)
-				{
-						out.println("<font color='#ff0000'>Error.<br><a href=\"login.jsp\" target=\"_self\"><i>Go Back to Home Page.</i></a></font><br>");
-						
-				}
-				finally
-				{
-				   conn.close();
-				}
+
 			} 
 			else
 			{
 			out.println("Fail! Only a postive integer is allowed for  <font color='#ff0000'>quantity</font><br> Please <a href=\"product_order.jsp?id="+pid+"\" target=\"_self\">buy it</a> again.");
 			}
 		}
-		catch(Exception e) 
-		{ 
-			out.println("Fail, <font color='#ff0000'>quantity</font> should be an integer, please check your input. <a href=\"product_order.jsp?id="+pid+"\" target=\"_self\">Try again</a>");
-		
-		}
+
 }
 %>
 

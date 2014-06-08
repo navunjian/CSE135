@@ -62,10 +62,10 @@ if(session.getAttribute("name")!=null)
 	if(rs.next())
 	{
 		c_name=rs.getString(3);
-		price=rs.getFloat(6);
+		price=rs.getFloat(5);
 	}
 %>
-<form action="do_product_order.jsp" method="post">
+<form action="do_product_order.jsp" method="get">
 <table width="70%"  border="1px" align="center">
 	<input type="text" style="display:none" id="id" name="id" value="<%=id%>">
 	<input type="text" style="display:none" name="name" id="name" value="<%=c_name%>">

@@ -37,22 +37,55 @@ if(session.getAttribute("name")!=null)
 	
 				Connection conn=null;
 				Statement stmt=null;
+								Statement stmt2=null;
+				Statement stmt3=null;
+				Statement stmt4=null;
+ResultSet rs = null, rs2 = null,rs3=null;
 				try
 				{
-					
-					
-					String  SQL="delete from carts where uid="+userID+";";
+
 					
 					try{Class.forName("org.postgresql.Driver");}catch(Exception e){System.out.println("Driver error");}
 					String url="jdbc:postgresql://127.0.0.1:5432/cse135";
 					String user="postgres";
 					String password="postgres";
 					conn =DriverManager.getConnection(url, user, password);
+					String updates = " insert into sales(uid, pid, quantity, price) VALUES (" + userID+ ", "+pid + ", " +quantity + ", "+price + "); update uidcid set sum = sum + "+quantity*price+" where uid = "+userID+" and cid = "+pid+"; update statepid set sum = sum + "+quantity*price+" where state = "+state+" and pid = "+pid+"; update uidpid set sum = sum + "+quantity*price+" where uid = "+userID+" and pid = "+pid+";"
+					String uid;
+					String pid;
+					String quantity;
+					String price;
+					String state;
+					String  SQL="  delete from carts where uid="+userID+";";
+
+
+
 					stmt =conn.createStatement();
-				
+									stmt2 =conn.createStatement();
+					stmt3 =conn.createStatement();
+					stmt4 =conn.createStatement();
+
+
+
 					try{
 					
 							conn.setAutoCommit(false);
+
+							rs=stmt2.execute("select * from carts where uid="+userId+";");
+                            rs2=stmt3.execute("select state from users where id="+userId+";");
+                            rs2.next();
+                            state = rs2.getString("state");
+
+                            while(rs.next()){
+                                uid = rs.getString("uid");
+                                pid = rs.getString("pid");
+                                quantity = rs.getString("quantity");
+                                price = rs.getString("price");
+                               SQL = " insert into sales(uid, pid, quantity, price) VALUES (" + userID+ ", "+pid + ", " +quantity + ", "+price + "); update uidcid set sum = sum + "+quantity*price+" where uid = "+userID+" and cid = "+pid+"; update statepid set sum = sum + "+quantity*price+" where state = "+state+" and pid = "+pid+"; update uidpid set sum = sum + "+quantity*price+" where uid = "+userID+" and pid = "+pid+";" + SQL;
+
+                            }
+
+
 							stmt.execute(SQL);
 							
 							conn.commit();

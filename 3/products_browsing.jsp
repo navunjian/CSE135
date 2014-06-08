@@ -54,21 +54,21 @@ if(session.getAttribute("name")!=null)
 		
 		if(c_id_int==-1 && key==null)
 		{
-			SQL="SELECT id,name,SKU, category, price FROM products order by id asc;";
+			SQL="SELECT id,name,SKU,price FROM products order by id asc;";
 		}
 		else
 		{
 			if(c_id_int==-1 && key!=null)
 			{
-				SQL="SELECT id,name,SKU, category, price FROM products where name LIKE '"+key+"%' order by id asc;";
+				SQL="SELECT id,name,SKU,price FROM products where name LIKE '"+key+"%' order by id asc;";
 			}
 			else if(c_id_int!=-1 && key!=null)
 			{
-				SQL="SELECT id,name,SKU, category, price FROM products where cid="+c_id_int+" and name LIKE '"+key+"%' order by id asc;";
+				SQL="SELECT id,name,SKU,price FROM products where cid="+c_id_int+" and name LIKE '"+key+"%' order by id asc;";
 			}
 			else if(c_id_int!=-1 && key==null)
 			{
-				SQL="SELECT id,name,SKU, category, price FROM products where cid="+c_id_int+" order by id asc;";
+				SQL="SELECT id,name,SKU,price FROM products where cid="+c_id_int+" order by id asc;";
 			}
 		}
 %>
@@ -92,8 +92,8 @@ Search for products:
 			id=rs.getInt(1);
 			name=rs.getString(2);
 			 SKU=rs.getString(3);
-			 category=rs.getString(4);
-			 price=rs.getFloat(5);
+			// category=rs.getString(4);
+			 price=rs.getFloat(4);
 			 out.println("<tr align=\"center\"><td width=\"20%\">"+name+"</td><td width=\"20%\">"+SKU+"</td><td width=\"20%\">"+category+"</td><td width=\"20%\">"+price+"</td><td width=\"20%\"><a href=\"product_order.jsp?id="+id+"\">Buy it</a></td></tr>");
 		}
 		out.println("</table>");
