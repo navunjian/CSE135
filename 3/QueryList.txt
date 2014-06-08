@@ -4,38 +4,50 @@ We might also have to make other tables if these arent fast enough.
 
 Precomputed Tables:
 
-CREATE TABLE customersales (
-	id SERIAL PRIMARY KEY,
-	uid INTEGER REFERENCES users(id) ON DELETE CASCADE,
-	pid INTEGER REFERENCES products(id) ON DELETE CASCADE,
-	sales INTEGER NOT NULL
-);
-CREATE INDEX sales_index ON customersales (sales);
-
-CREATE TABLE statesales (
-	id SERIAL PRIMARY KEY,
-	state TEXT NOT NULL,
-	pid INTEGER REFERENCES products(id) ON DELETE CASCADE,
-	sales INTEGER NOT NULL
-);
-CREATE INDEX state_sales_index ON statesales (sales);
-
-CREATE TABLE productsales (
-	id SERIAL PRIMARY KEY,
-	pid INTEGER REFERENCES products(id) ON DELETE CASCADE,
-	sales INTEGER NOT NULL
-);
-CREATE INDEX product_sales_index ON productsales (sales);
-
-CREATE TABLE aggregatesales (
-	id	SERIAL PRIMARY KEY,
-	uid	INTEGER REFERENCES users(id) ON DELETE CASCADE,
-	state	TEXT NOT NULL,
-	catid	INTEGER REFERENCES categories(id) ON DELETE CASCADE,
-	pid	INTEGER REFERENCES products(id) ON DELETE CASCADE,
-	sales	INTEGER NOT NULL
+CREATE TABLE statepid(
+id SERIAL PRIMARY KEY,
+state TEXT NOT NULL,
+pid INTEGER REFERENCES products(id) ON DELETE CASCADE,
+sum INTEGER NOT NULL
 );
 
+CREATE TABLE uidcid(
+id SERIAL PRIMARY KEY,
+uid INTEGER REFERENCES users(id) ON DELETE CASCADE,
+cid INTEGER REFERENCES categories(id) ON DELETE CASCADE,
+sum INTEGER NOT NULL
+);
+
+CREATE TABLE statecid(
+id SERIAL PRIMARY KEY,
+state TEXT NOT NULL,
+cid INTEGER REFERENCES categories(id) ON DELETE CASCADE,
+sum INTEGER NOT NULL
+);
+
+CREATE TABLE uid(
+id SERIAL PRIMARY KEY,
+uid INTEGER REFERENCES users(id) ON DELETE CASCADE,
+sum INTEGER NOT NULL
+);
+
+CREATE TABLE state(
+id SERIAL PRIMARY KEY,
+state TEXT NOT NULL,
+sum INTEGER NOT NULL
+);
+
+CREATE TABLE pid(
+id SERIAL PRIMARY KEY,
+pid INTEGER REFERENCES products(id) ON DELETE CASCADE,
+sum INTEGER NOT NULL
+);
+
+CREATE TABLE cid(
+id SERIAL PRIMARY KEY,
+cid INTEGER REFERENCES categories(id) ON DELETE CASCADE,
+sum INTEGER NOT NULL
+);
 First Precomputation:
 INSERT INTO customersales (uid, pid, sales)
 	SELECT p.uid, p.pid, SUM(p.quantity*p.price)

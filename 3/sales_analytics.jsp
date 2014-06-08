@@ -141,42 +141,49 @@
 		String groupAppend = "";
 
         if(!state.equals("allstates")){
-            filter += " WHERE state='" +state + "' ";
-			filtered = true;
+            filter += " AND sp.state='" +state + "' ";
         }
 
         if(!category.equals("allcategories")) {
-			filter += ((filtered) ? " AND ":" WHERE ")+"catid = " + category +" ";
-			groupAppend += "catid, ";
+			filter += " AND p.cid = " + category +" ";
+			groupAppend += "p.cid, ";
 		}
 		if (!filter.isEmpty())
-			rs = stmt.executeQuery("select p.name, b.pid, b.sum FROM (select pid, "+groupAppend+"sum(sales) as sum from aggregatesales "+filter+"group by "+groupAppend+"pid ORDER BY sum DESC) as b, products p WHERE p.id = b.pid LIMIT 10");
+			rs = stmt.executeQuery("select sp.pid,  sum(sp.sum) as sum from statepid sp, products p where sp.pid = p.id "+filter+" group by sp.pid order by sum desc LIMIT 10;");
+
+
 		else
-			rs = stmt.executeQuery("select name, pid, sales as sum from productsales, products p where pid = p.id order by sales DESC LIMIT 10");
+			rs = stmt.executeQuery("select sp.pid,  sum(sp.sum) as sum from statepid sp, products p where sp.pid = p.id  group by sp.pid order by sum desc LIMIT 10;");
 			
 		int prod_ids[] = new int[10];
 		int i = 0;
 		while (rs.next()) {
 			prod_ids[i++] = rs.getInt("pid");
 		%>
-			<td><b><%= rs.getString("name")+" ("+rs.getString("sum")+")" %></b></td>
+			<td><b><%= rs.getString("pid")+" ("+rs.getString("sum")+")" %></b></td>
 		<%
 		}
 		%></tr><%
 		rs.close();
 		String rowfilter = "";
 		if (rows.equals("customer")) {
-			rs = stmt.executeQuery("SELECT uid as unit, sum(sales) as sum FROM aggregatesales "+filter+"GROUP BY uid ORDER BY sum DESC LIMIT 20");
+			rs = stmt.executeQuery("select sp.name as unit, sum(p.sum) as sum from uidcid as p, users as sp where p.uid=sp.id "+filter+" group by sp.name order by sum desc limit 20;");
 			rowfilter = "uid = ";
 		} else {
-			rs = stmt.executeQuery("SELECT state as unit, sum(sales) as sum FROM aggregatesales "+filter+"GROUP BY state ORDER BY sum DESC LIMIT 20");
-			rowfilter = "state = ";
+			rs = stmt.executeQuery("select sp.state as unit,  sum(sp.sum) as sum from statepid sp, products p where sp.pid = p.id "+filter+" group by sp.state order by sum desc LIMIT 20;");
+			rowfilter = "sp.state = ";
 		}
 		while (rs.next()) {
 		%><tr><td><b><%= rs.getString("unit")+" ("+rs.getString("sum")+")" %>
 		<%
 			String filt = rowfilter + ((rows.equals("customers")) ? rs.getString("unit") : "'"+rs.getString("unit")+"'");
-			pstmt = conn.prepareStatement("SELECT sum(sales) as sum FROM aggregatesales WHERE "+filt+" AND pid = ?");
+			if (rows.equals("customer")) {
+	        } else {
+	        	pstmt = conn.prepareStatement("select sum(sp.sum) as sum from statepid sp, products p where sp.pid = p.id AND p.id =? AND "+filter);
+	        //	"SELECT sum(sales) as sum FROM aggregatesales WHERE "+filt+" AND pid = ?");
+
+		    }
+
 			for(i = 0; i < 10; ++i) {
 				pstmt.setInt(1, prod_ids[i]);
 				rs2 = pstmt.executeQuery();
