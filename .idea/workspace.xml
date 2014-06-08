@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="63ca07ee-99c0-475a-9632-a14239450fda" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/3/firstPrecomputation.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data_generator/DataGenerator.class" afterPath="$PROJECT_DIR$/data_generator/DataGenerator.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data_generator/DataGenerator.java" afterPath="$PROJECT_DIR$/data_generator/DataGenerator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data_generator/createtables.sql" afterPath="$PROJECT_DIR$/data_generator/createtables.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/3/sales_analytics.jsp" afterPath="$PROJECT_DIR$/3/sales_analytics.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/3/firstPrecomputation.jsp" afterPath="$PROJECT_DIR$/3/firstPrecomputation.jsp" />
     </list>
     <ignored path="cse135.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,25 +28,25 @@
       <file leaf-file-name="QueryList.txt" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/3/QueryList.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="26" selection-start="1008" selection-end="1008" vertical-scroll-proportion="0.0" vertical-offset="190" max-vertical-offset="1116">
+            <state line="32" column="26" selection-start="1008" selection-end="1008" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1116">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="firstPrecomputation.jsp" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="firstPrecomputation.jsp" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/3/firstPrecomputation.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="16" selection-start="1794" selection-end="1794" vertical-scroll-proportion="-23.333334" vertical-offset="234" max-vertical-offset="1314">
+            <state line="48" column="185" selection-start="1963" selection-end="1963" vertical-scroll-proportion="0.7562077" vertical-offset="194" max-vertical-offset="1368">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sales_analytics.jsp" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="sales_analytics.jsp" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/3/sales_analytics.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="168" column="79" selection-start="6692" selection-end="6692" vertical-scroll-proportion="0.4108352" vertical-offset="2660" max-vertical-offset="4032">
+            <state line="168" column="79" selection-start="6692" selection-end="6692" vertical-scroll-proportion="-29.481482" vertical-offset="2228" max-vertical-offset="4032">
               <folding />
             </state>
           </provider>
@@ -120,8 +115,8 @@
         <option value="$PROJECT_DIR$/2/sales_analytics.jsp" />
         <option value="$PROJECT_DIR$/data_generator/createtables.sql" />
         <option value="$PROJECT_DIR$/data_generator/DataGenerator.java" />
-        <option value="$PROJECT_DIR$/3/firstPrecomputation.jsp" />
         <option value="$PROJECT_DIR$/3/sales_analytics.jsp" />
+        <option value="$PROJECT_DIR$/3/firstPrecomputation.jsp" />
       </list>
     </option>
   </component>
@@ -640,13 +635,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="913" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/3/firstPrecomputation.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="16" selection-start="1794" selection-end="1794" vertical-scroll-proportion="-23.333334" vertical-offset="234" max-vertical-offset="1314">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data_generator/createtables.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state line="41" column="0" selection-start="1111" selection-end="1111" vertical-scroll-proportion="0.0" vertical-offset="316" max-vertical-offset="1296">
@@ -656,14 +644,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/3/QueryList.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="26" selection-start="1008" selection-end="1008" vertical-scroll-proportion="0.0" vertical-offset="190" max-vertical-offset="1116">
+        <state line="32" column="26" selection-start="1008" selection-end="1008" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1116">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/3/sales_analytics.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="168" column="79" selection-start="6692" selection-end="6692" vertical-scroll-proportion="0.4108352" vertical-offset="2660" max-vertical-offset="4032">
+        <state line="168" column="79" selection-start="6692" selection-end="6692" vertical-scroll-proportion="-29.481482" vertical-offset="2228" max-vertical-offset="4032">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/3/firstPrecomputation.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="185" selection-start="1963" selection-end="1963" vertical-scroll-proportion="0.7562077" vertical-offset="194" max-vertical-offset="1368">
           <folding />
         </state>
       </provider>
