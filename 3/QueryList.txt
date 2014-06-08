@@ -1,69 +1,90 @@
-READ FIRST: The page currently only uses aggregatesales and productsales, the other tables aren't necessary right now, but they could be later.
-We might also have to make other tables if these arent fast enough.
-
-
 Precomputed Tables:
 
-CREATE TABLE statepid(
-id SERIAL PRIMARY KEY,
-state TEXT NOT NULL,
-pid INTEGER REFERENCES products(id) ON DELETE CASCADE,
-sum INTEGER NOT NULL
-);
+CREATE TALBE uidpid (
+	id	SERIAL PRIMARY KEY,
+	uid	INTEGER REFERENCES users(id) ON DELETE CASCADE,
+	pid	INTEGER REFERENCES products(id) ON DELETE CASCADE,
+	sum	INTEGER NOT NULL
+	);
 
-CREATE TABLE uidcid(
-id SERIAL PRIMARY KEY,
-uid INTEGER REFERENCES users(id) ON DELETE CASCADE,
-cid INTEGER REFERENCES categories(id) ON DELETE CASCADE,
-sum INTEGER NOT NULL
-);
+CREATE TABLE statepid (
+	id	SERIAL PRIMARY KEY,
+	state	TEXT NOT NULL,
+	pid		INTEGER REFERENCES products(id) ON DELETE CASCADE,
+	sum		INTEGER NOT NULL
+	);
+	
+CREATE TABLE uidcid (
+	id		SERIAL PRIMARY KEY,
+	uid		INTEGER REFERENCES users(id) ON DELETE CASCADE,
+	cid		INTEGER REFERENCES categories(id) ON DELETE CASCADE,
+	sum		INTEGER NOT NULL
+	);
+	
+-------------------- UNUSED LATTICE TABLES --------------------
+CREATE TABLE statecid (
+	id	SERIAL PRIMARY KEY,
+	state	TEXT NOT NULL,
+	cid		INTEGER REFERENCES categories(id) ON DELETE CASCADE,
+	sum		INTEGER NOT NULL
+	);
+	
+CREATE TABLE uid (
+	id		SERIAL PRIMARY KEY,
+	uid		INTEGER REFERENCES users(id) ON DELETE CASCADE,
+	sum		INTEGER NOT NULL
+	);
+	
+CREATE TABLE state (
+	id		SERIAL PRIMARY KEY,
+	state	TEXT NOT NULL,
+	sum		INTEGER NOT NULL
+	);
+	
+CREATE TABLE pid (
+	id		SERIAL PRIMARY KEY,
+	pid		INTEGER REFERENCES products(id) ON DELETE CASCADE,
+	sum		INTEGER NOT NULL
+	);
+	
+CREATE TABLE cid (
+	id		SERIAL PRIMARY KEY,
+	cid		INTEGER REFERENCES categories(id) ON DELETE CASCADE,
+	sum		INTEGER NOT NULL
+	);
+	
+--------------------- Precomputation Inserts ---------------------
+INSERT INTO statepid (state, pid, sum)
+	SELECT u.state, s.pid, sum(s.price*s.quantity)
+	FROM users u, sales s
+	WHERE u.id = s.uid
+	GROUP BY u.state, s.pid;
+~45 minutes to fill
 
-CREATE TABLE statecid(
-id SERIAL PRIMARY KEY,
-state TEXT NOT NULL,
-cid INTEGER REFERENCES categories(id) ON DELETE CASCADE,
-sum INTEGER NOT NULL
-);
+INSERT INTO uidcid (uid, cid, sum)
+	SELECT s.uid, p.cid, sum(s.price*s.quantity)
+	FROM products p, sales s
+	WHERE p.id = s.pid
+	GROUP BY s.uid, p.cid;
+~12 minutes to fill
 
-CREATE TABLE uid(
-id SERIAL PRIMARY KEY,
-uid INTEGER REFERENCES users(id) ON DELETE CASCADE,
-sum INTEGER NOT NULL
-);
+INSERT INTO uidpid (uid, pid, sum)
+	SELECT uid, pid, sum(quantity*price)
+	FROM sales
+	group by uid, pid;
+-27.5 minutes to fill
 
-CREATE TABLE state(
-id SERIAL PRIMARY KEY,
-state TEXT NOT NULL,
-sum INTEGER NOT NULL
-);
+----------------------- Times of SQL Queries --------------------------
+Grabbing top ten products for all states and categories: 44 ms
+Grabbing top ten products for a specific state and category: 15 ms
 
-CREATE TABLE pid(
-id SERIAL PRIMARY KEY,
-pid INTEGER REFERENCES products(id) ON DELETE CASCADE,
-sum INTEGER NOT NULL
-);
+Grabbing top 20 customers for all states and categories: 1875 ms
+Grabbing top 20 customers for a specific state and category: 1510 ms
 
-CREATE TABLE cid(
-id SERIAL PRIMARY KEY,
-cid INTEGER REFERENCES categories(id) ON DELETE CASCADE,
-sum INTEGER NOT NULL
-);
-First Precomputation:
-INSERT INTO customersales (uid, pid, sales)
-	SELECT p.uid, p.pid, SUM(p.quantity*p.price)
-	FROM sales p
-	GROUP BY p.uid, p.pid;
-INSERT INTO statesales (state, pid, sales)
-	SELECT u.state, p.pid, SUM(p.quantity*p.price)
-	FROM sales p, users u
-	WHERE p.uid = u.id
-	GROUP BY u.state, p.pid;
-INSERT INTO productsales (pid, sales)
-	SELECT p.pid, SUM(p.quantity*p.price)
-	FROM sales p
-	GROUP BY p.pid;
-INSERT INTO aggregatesales (uid, state, catid, pid, sales)
-	SELECT s.uid, u.state, p.cid, s.pid, sum(s.price*s.quantity)
-	FROM sales s, users u, products p
-	WHERE s.pid = p.id AND s.uid = u.id
-	GROUP BY s.uid, u.state, p.cid, s.pid;
+Grabbing top 20 states for all categories: 44 ms
+Grabbing top 20 states for a specific state and category: 22 ms
+
+Grabbing one row of table: 40 ms
+
+Average time to fill for all states and categories: ~2.1 sec
+Average time to fill for specific stae and category: ~0.5 sec
